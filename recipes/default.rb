@@ -19,10 +19,34 @@
 #
 
 if node['platform'] == 'debian'
-	if node.platform_version.to_f >= 5.0
+	if node.platform_version.to_f >= 5.0 && node.platform_version.to_f <= 6.0
 		apt_repository "dotdeb" do
-			uri "http://packages.dotdeb.org"
-			distribution "stable"
+			uri "http://archives.dotdeb.org"
+			distribution "lenny"
+			components ['all']
+			key "http://www.dotdeb.org/dotdeb.gpg"
+			action :add
+		end
+	elsif node.platform_version.to_f >= 4.0 && node.platform_version.to_f <= 5.0
+		apt_repository "dotdeb" do
+			uri "http://archives.dotdeb.org"
+			distribution "etch"
+			components ['all']
+			key "http://www.dotdeb.org/dotdeb.gpg"
+			action :add
+		end
+	elsif node.platform_version.to_f >= 3.0 && node.platform_version.to_f <= 4.0
+		apt_repository "dotdeb" do
+			uri "http://archives.dotdeb.org"
+			distribution "sarge"
+			components ['all']
+			key "http://www.dotdeb.org/dotdeb.gpg"
+			action :add
+		end
+	elsif node.platform_version.to_f >= 2.0 && node.platform_version.to_f <= 3.0
+		apt_repository "dotdeb" do
+			uri "http://archives.dotdeb.org"
+			distribution "woody"
 			components ['all']
 			key "http://www.dotdeb.org/dotdeb.gpg"
 			action :add
@@ -30,12 +54,13 @@ if node['platform'] == 'debian'
 	else
 		apt_repository "dotdeb" do
 			uri "http://packages.dotdeb.org"
-			distribution "oldstable"
+			distribution "stable"
 			components ['all']
 			key "http://www.dotdeb.org/dotdeb.gpg"
 			action :add
 		end
 	end
+
 	if node['dotdeb']['php54']
 		apt_repository "dotdeb-php54" do
 			uri "http://packages.dotdeb.org"
@@ -47,7 +72,7 @@ if node['platform'] == 'debian'
 	else
 		apt_repository "dotdeb-php53" do
 			uri "http://php53.dotdeb.org"
-			distribution "oldstable"
+			distribution "stable"
 			components ['all']
 			key "http://www.dotdeb.org/dotdeb.gpg"
 			action :add
