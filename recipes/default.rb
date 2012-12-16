@@ -19,7 +19,7 @@
 #
 
 if node['platform'] == 'debian'
-	if node.platform_version.to_f >= 5.0 && node.platform_version.to_f <= 6.0
+	if node.platform_version.to_f >= 5.0 && node.platform_version.to_f < 6.0
 		apt_repository "dotdeb" do
 			uri "http://archives.dotdeb.org"
 			distribution "lenny"
@@ -27,7 +27,7 @@ if node['platform'] == 'debian'
 			key "http://www.dotdeb.org/dotdeb.gpg"
 			action :add
 		end
-	elsif node.platform_version.to_f >= 4.0 && node.platform_version.to_f <= 5.0
+	elsif node.platform_version.to_f >= 4.0 && node.platform_version.to_f < 5.0
 		apt_repository "dotdeb" do
 			uri "http://archives.dotdeb.org"
 			distribution "etch"
@@ -35,7 +35,7 @@ if node['platform'] == 'debian'
 			key "http://www.dotdeb.org/dotdeb.gpg"
 			action :add
 		end
-	elsif node.platform_version.to_f >= 3.0 && node.platform_version.to_f <= 4.0
+	elsif node.platform_version.to_f >= 3.0 && node.platform_version.to_f < 4.0
 		apt_repository "dotdeb" do
 			uri "http://archives.dotdeb.org"
 			distribution "sarge"
@@ -43,7 +43,7 @@ if node['platform'] == 'debian'
 			key "http://www.dotdeb.org/dotdeb.gpg"
 			action :add
 		end
-	elsif node.platform_version.to_f >= 2.0 && node.platform_version.to_f <= 3.0
+	elsif node.platform_version.to_f >= 2.0 && node.platform_version.to_f < 3.0
 		apt_repository "dotdeb" do
 			uri "http://archives.dotdeb.org"
 			distribution "woody"
