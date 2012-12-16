@@ -36,7 +36,7 @@ if node['platform'] == 'debian'
 			action :add
 		end
 	end
-	if node['php-fpm']['php54']
+	if node['dotdeb']['php54']
 		apt_repository "dotdeb-php54" do
 			uri "http://packages.dotdeb.org"
 			distribution "squeeze-php54"
