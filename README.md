@@ -21,7 +21,7 @@ The `apt_repository` LWRP is used from this cookbook to create the proper reposi
 Attributes
 ==========
 
-* `node['php-fpm']['php54']` - whether PHP 5.4 repository should be used
+* `node['dotdeb']['php54']` - whether PHP 5.4 repository should be used
 
 Usage
 =====
