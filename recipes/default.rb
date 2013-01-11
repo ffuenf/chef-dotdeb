@@ -19,6 +19,7 @@
 #
 
 if node['platform'] == 'debian'
+	include_recipe "apt"
 	if node.platform_version.to_f >= 5.0 && node.platform_version.to_f < 6.0
 		apt_repository "dotdeb" do
 			uri "http://archives.dotdeb.org"
@@ -26,6 +27,7 @@ if node['platform'] == 'debian'
 			components ['all']
 			key "http://www.dotdeb.org/dotdeb.gpg"
 			action :add
+			notifies :run, resources("execute[apt-get update]"), :immediately
 		end
 	elsif node.platform_version.to_f >= 4.0 && node.platform_version.to_f < 5.0
 		apt_repository "dotdeb" do
@@ -34,6 +36,7 @@ if node['platform'] == 'debian'
 			components ['all']
 			key "http://www.dotdeb.org/dotdeb.gpg"
 			action :add
+			notifies :run, resources("execute[apt-get update]"), :immediately
 		end
 	elsif node.platform_version.to_f >= 3.0 && node.platform_version.to_f < 4.0
 		apt_repository "dotdeb" do
@@ -42,6 +45,7 @@ if node['platform'] == 'debian'
 			components ['all']
 			key "http://www.dotdeb.org/dotdeb.gpg"
 			action :add
+			notifies :run, resources("execute[apt-get update]"), :immediately
 		end
 	elsif node.platform_version.to_f >= 2.0 && node.platform_version.to_f < 3.0
 		apt_repository "dotdeb" do
@@ -50,6 +54,7 @@ if node['platform'] == 'debian'
 			components ['all']
 			key "http://www.dotdeb.org/dotdeb.gpg"
 			action :add
+			notifies :run, resources("execute[apt-get update]"), :immediately
 		end
 	else
 		apt_repository "dotdeb" do
@@ -58,6 +63,7 @@ if node['platform'] == 'debian'
 			components ['all']
 			key "http://www.dotdeb.org/dotdeb.gpg"
 			action :add
+			notifies :run, resources("execute[apt-get update]"), :immediately
 		end
 		
 		# switch php versions
@@ -68,6 +74,7 @@ if node['platform'] == 'debian'
 				components ['all']
 				key "http://www.dotdeb.org/dotdeb.gpg"
 				action :add
+				notifies :run, resources("execute[apt-get update]"), :immediately
 			end
 		else
 			apt_repository "dotdeb-php53" do
@@ -76,6 +83,7 @@ if node['platform'] == 'debian'
 				components ['all']
 				key "http://www.dotdeb.org/dotdeb.gpg"
 				action :add
+				notifies :run, resources("execute[apt-get update]"), :immediately
 			end
 		end
 	end
