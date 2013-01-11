@@ -27,7 +27,6 @@ if node['platform'] == 'debian'
 			components ['all']
 			key "http://www.dotdeb.org/dotdeb.gpg"
 			action :add
-			notifies :run, resources("execute[apt-get update]"), :immediately
 		end
 	elsif node.platform_version.to_f >= 4.0 && node.platform_version.to_f < 5.0
 		apt_repository "dotdeb" do
@@ -36,7 +35,6 @@ if node['platform'] == 'debian'
 			components ['all']
 			key "http://www.dotdeb.org/dotdeb.gpg"
 			action :add
-			notifies :run, resources("execute[apt-get update]"), :immediately
 		end
 	elsif node.platform_version.to_f >= 3.0 && node.platform_version.to_f < 4.0
 		apt_repository "dotdeb" do
@@ -45,7 +43,6 @@ if node['platform'] == 'debian'
 			components ['all']
 			key "http://www.dotdeb.org/dotdeb.gpg"
 			action :add
-			notifies :run, resources("execute[apt-get update]"), :immediately
 		end
 	elsif node.platform_version.to_f >= 2.0 && node.platform_version.to_f < 3.0
 		apt_repository "dotdeb" do
@@ -54,7 +51,6 @@ if node['platform'] == 'debian'
 			components ['all']
 			key "http://www.dotdeb.org/dotdeb.gpg"
 			action :add
-			notifies :run, resources("execute[apt-get update]"), :immediately
 		end
 	else
 		apt_repository "dotdeb" do
@@ -63,7 +59,6 @@ if node['platform'] == 'debian'
 			components ['all']
 			key "http://www.dotdeb.org/dotdeb.gpg"
 			action :add
-			notifies :run, resources("execute[apt-get update]"), :immediately
 		end
 		
 		# switch php versions
@@ -74,7 +69,6 @@ if node['platform'] == 'debian'
 				components ['all']
 				key "http://www.dotdeb.org/dotdeb.gpg"
 				action :add
-				notifies :run, resources("execute[apt-get update]"), :immediately
 			end
 		else
 			apt_repository "dotdeb-php53" do
@@ -83,8 +77,11 @@ if node['platform'] == 'debian'
 				components ['all']
 				key "http://www.dotdeb.org/dotdeb.gpg"
 				action :add
-				notifies :run, resources("execute[apt-get update]"), :immediately
 			end
 		end
+	end
+	execute "update apt sources" do
+		command "apt-get update"
+		action :run
 	end
 end
