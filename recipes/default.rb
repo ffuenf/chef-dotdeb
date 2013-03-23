@@ -58,7 +58,7 @@ if node['platform'] == 'debian'
 				uri node['dotdeb']['mirror']['deb']
 				distribution "stable"
 				components ['all']
-				key node['dotdeb']['mirror']['key']
+				key "http://www.dotdeb.org/dotdeb.gpg"
 				action :add
 			end
 		else
@@ -78,7 +78,7 @@ if node['platform'] == 'debian'
 					uri node['dotdeb']['mirror']['deb']
 					distribution "squeeze-php54"
 					components ['all']
-					key node['dotdeb']['mirror']['key']
+					key "http://www.dotdeb.org/dotdeb.gpg"
 					action :add
 				end
 			else
