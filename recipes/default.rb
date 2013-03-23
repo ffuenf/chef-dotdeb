@@ -53,16 +53,17 @@ if node['platform'] == 'debian'
 			action :add
 		end
 	else
-		apt_repository "dotdeb" do
-			uri "http://packages.dotdeb.org"
-			distribution "stable"
-			components ['all']
-			key "http://www.dotdeb.org/dotdeb.gpg"
-			action :add
-		end
 		if node['dotdeb']['mirror']['enabled']
 			apt_repository "dotdeb" do
 				uri node['dotdeb']['mirror']['deb']
+				distribution "stable"
+				components ['all']
+				key "http://www.dotdeb.org/dotdeb.gpg"
+				action :add
+			end
+		else
+			apt_repository "dotdeb" do
+				uri "http://packages.dotdeb.org"
 				distribution "stable"
 				components ['all']
 				key "http://www.dotdeb.org/dotdeb.gpg"
@@ -72,12 +73,21 @@ if node['platform'] == 'debian'
 		
 		# switch php versions
 		if node['dotdeb']['php54']
-			apt_repository "dotdeb-php54" do
-				uri "http://packages.dotdeb.org"
-				distribution "squeeze-php54"
-				components ['all']
-				key "http://www.dotdeb.org/dotdeb.gpg"
-				action :add
+			if node['dotdeb']['mirror']['enabled']
+				apt_repository "dotdeb-php54" do
+					uri node['dotdeb']['mirror']['deb']
+					distribution "squeeze-php54"
+					components ['all']
+					key "http://www.dotdeb.org/dotdeb.gpg"
+					action :add
+			else
+				apt_repository "dotdeb-php54" do
+					uri "http://packages.dotdeb.org"
+					distribution "squeeze-php54"
+					components ['all']
+					key "http://www.dotdeb.org/dotdeb.gpg"
+					action :add
+				end
 			end
 		else
 			apt_repository "dotdeb-php53" do
