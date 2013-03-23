@@ -91,12 +91,22 @@ if node['platform'] == 'debian'
 				end
 			end
 		else
-			apt_repository "dotdeb-php53" do
-				uri "http://php53.dotdeb.org"
-				distribution "stable"
-				components ['all']
-				key "http://www.dotdeb.org/dotdeb.gpg"
-				action :add
+			if node['dotdeb']['mirror']['enabled']
+				apt_repository "dotdeb-php54" do
+					uri node['dotdeb']['mirror']['deb']
+					distribution "stable"
+					components ['all']
+					key "http://www.dotdeb.org/dotdeb.gpg"
+					action :add
+				end
+			else
+				apt_repository "dotdeb-php53" do
+					uri "http://php53.dotdeb.org"
+					distribution "stable"
+					components ['all']
+					key "http://www.dotdeb.org/dotdeb.gpg"
+					action :add
+				end
 			end
 		end
 	end
