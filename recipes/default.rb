@@ -80,6 +80,7 @@ if node['platform'] == 'debian'
 					components ['all']
 					key node['dotdeb']['mirror']['key']
 					action :add
+				end
 			else
 				apt_repository "dotdeb-php54" do
 					uri "http://packages.dotdeb.org"
