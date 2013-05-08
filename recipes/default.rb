@@ -3,7 +3,7 @@
 # Cookbook Name:: dotdeb
 # Recipe:: default
 #
-# Copyright 2012, Achim Rosenhagen
+# Copyright 2013, Achim Rosenhagen
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,76 +20,22 @@
 
 if node['platform'] == 'debian'
 	include_recipe "apt"
-	if node.platform_version.to_f >= 5.0 && node.platform_version.to_f < 6.0
-		apt_repository "dotdeb" do
-			uri "http://archives.dotdeb.org"
-			distribution "lenny"
-			components ['all']
-			key "http://www.dotdeb.org/dotdeb.gpg"
-			action :add
-		end
-	elsif node.platform_version.to_f >= 4.0 && node.platform_version.to_f < 5.0
-		apt_repository "dotdeb" do
-			uri "http://archives.dotdeb.org"
-			distribution "etch"
-			components ['all']
-			key "http://www.dotdeb.org/dotdeb.gpg"
-			action :add
-		end
-	elsif node.platform_version.to_f >= 3.0 && node.platform_version.to_f < 4.0
-		apt_repository "dotdeb" do
-			uri "http://archives.dotdeb.org"
-			distribution "sarge"
-			components ['all']
-			key "http://www.dotdeb.org/dotdeb.gpg"
-			action :add
-		end
-	elsif node.platform_version.to_f >= 2.0 && node.platform_version.to_f < 3.0
-		apt_repository "dotdeb" do
-			uri "http://archives.dotdeb.org"
-			distribution "woody"
+	# switch php versions
+	if node['dotdeb']['php54']
+		apt_repository "dotdeb-php54" do
+			uri node['dotdeb']['uri']
+			distribution "#{node['dotdeb']['distribution']}-php54"
 			components ['all']
 			key "http://www.dotdeb.org/dotdeb.gpg"
 			action :add
 		end
 	else
-		# switch php versions
-		if node['dotdeb']['php54']
-			if node['dotdeb']['mirror']['enabled']
-				apt_repository "dotdeb-php54" do
-					uri node['dotdeb']['mirror']['deb']
-					distribution "squeeze-php54"
-					components ['all']
-					key "http://www.dotdeb.org/dotdeb.gpg"
-					action :add
-				end
-			else
-				apt_repository "dotdeb-php54" do
-					uri "http://packages.dotdeb.org"
-					distribution "squeeze-php54"
-					components ['all']
-					key "http://www.dotdeb.org/dotdeb.gpg"
-					action :add
-				end
-			end
-		else
-			if node['dotdeb']['mirror']['enabled']
-				apt_repository "dotdeb" do
-					uri node['dotdeb']['mirror']['deb']
-					distribution "stable"
-					components ['all']
-					key "http://www.dotdeb.org/dotdeb.gpg"
-					action :add
-				end
-			else
-				apt_repository "dotdeb" do
-					uri "http://packages.dotdeb.org"
-					distribution "squeeze"
-					components ['all']
-					key "http://www.dotdeb.org/dotdeb.gpg"
-					action :add
-				end
-			end
+		apt_repository "dotdeb" do
+			uri node['dotdeb']['uri']
+			distribution node['dotdeb']['distribution']
+			components ['all']
+			key "http://www.dotdeb.org/dotdeb.gpg"
+			action :add
 		end
 	end
 	execute "update apt sources" do

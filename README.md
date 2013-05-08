@@ -33,7 +33,7 @@ License and Author
 
 Author:: Achim Rosenhagen (<a.rosenhagen@ffuenf.de>)
 
-Copyright:: 2012, Achim Rosenhagen
+Copyright:: 2013, Achim Rosenhagen
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

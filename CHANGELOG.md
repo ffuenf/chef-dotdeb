@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of dotdeb.
 
+## 0.0.5:
+
+* rewrite to set uri and distribution manually
+* removed mirror handling
+
 ## 0.0.4:
 
 * correct dotdeb mirror and php54 setting
