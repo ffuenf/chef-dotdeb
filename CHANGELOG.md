@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dotdeb.
 
+## 0.0.6:
+
+* added dotdeb components other than php54
+
 ## 0.0.5:
 
 * rewrite to set uri and distribution manually

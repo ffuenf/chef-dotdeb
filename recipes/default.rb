@@ -29,6 +29,13 @@ if node['platform'] == 'debian'
 			key "http://www.dotdeb.org/dotdeb.gpg"
 			action :add
 		end
+		apt_repository "dotdeb" do
+			uri node['dotdeb']['uri']
+			distribution node['dotdeb']['distribution']
+			components ['all']
+			key "http://www.dotdeb.org/dotdeb.gpg"
+			action :add
+		end
 	else
 		apt_repository "dotdeb" do
 			uri node['dotdeb']['uri']
