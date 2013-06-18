@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dotdeb.
 
+## 0.0.7:
+
+* added setting for php55 (wheezy)
+
 ## 0.0.6:
 
 * added dotdeb components other than php54

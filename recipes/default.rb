@@ -21,7 +21,22 @@
 if node['platform'] == 'debian'
 	include_recipe "apt"
 	# switch php versions
-	if node['dotdeb']['php54']
+	if node['dotdeb']['php55']
+		apt_repository "dotdeb-php55" do
+			uri node['dotdeb']['uri']
+			distribution "#{node['dotdeb']['distribution']}-php55"
+			components ['all']
+			key "http://www.dotdeb.org/dotdeb.gpg"
+			action :add
+		end
+		apt_repository "dotdeb" do
+			uri node['dotdeb']['uri']
+			distribution node['dotdeb']['distribution']
+			components ['all']
+			key "http://www.dotdeb.org/dotdeb.gpg"
+			action :add
+		end
+	elsif node['dotdeb']['php54']
 		apt_repository "dotdeb-php54" do
 			uri node['dotdeb']['uri']
 			distribution "#{node['dotdeb']['distribution']}-php54"
