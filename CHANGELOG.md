@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of dotdeb.
 
+## 0.0.8:
+
+* set default distribution to debian 7 (wheezy)
+* introduce test-kitchen
+
 ## 0.0.7:
 
 * added setting for php55 (wheezy)
