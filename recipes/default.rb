@@ -26,7 +26,6 @@ if node['platform'] == 'debian'
 			uri node['dotdeb']['uri']
 			distribution "#{node['dotdeb']['distribution']}-php55"
 			components ['all']
-			keyserver "keys.gnupg.net"
 			key node['dotdeb']['gpg-key']
 			cookbook "dotdeb"
 			action :add
@@ -35,7 +34,6 @@ if node['platform'] == 'debian'
 			uri node['dotdeb']['uri']
 			distribution node['dotdeb']['distribution']
 			components ['all']
-			keyserver "keys.gnupg.net"
 			key node['dotdeb']['gpg-key']
 			cookbook "dotdeb"
 			action :add
@@ -45,7 +43,6 @@ if node['platform'] == 'debian'
 			uri node['dotdeb']['uri']
 			distribution "#{node['dotdeb']['distribution']}-php54"
 			components ['all']
-			keyserver "keys.gnupg.net"
 			key node['dotdeb']['gpg-key']
 			cookbook "dotdeb"
 			action :add
@@ -54,7 +51,6 @@ if node['platform'] == 'debian'
 			uri node['dotdeb']['uri']
 			distribution node['dotdeb']['distribution']
 			components ['all']
-			keyserver "keys.gnupg.net"
 			key node['dotdeb']['gpg-key']
 			cookbook "dotdeb"
 			action :add
@@ -64,7 +60,6 @@ if node['platform'] == 'debian'
 			uri node['dotdeb']['uri']
 			distribution node['dotdeb']['distribution']
 			components ['all']
-			keyserver "keys.gnupg.net"
 			key node['dotdeb']['gpg-key']
 			cookbook "dotdeb"
 			action :add
