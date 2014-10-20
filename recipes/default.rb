@@ -21,7 +21,16 @@
 if node['platform'] == 'debian'
   include_recipe 'apt'
   # switch php versions
-  if node['dotdeb']['php55']
+  if node['dotdeb']['php56']
+    apt_repository 'dotdeb-php56' do
+      uri node['dotdeb']['uri']
+      distribution "#{node['dotdeb']['distribution']}-php56"
+      components ['all']
+      key node['dotdeb']['gpg-key']
+      cookbook 'dotdeb'
+      action :add
+    end
+  elsif node['dotdeb']['php55']
     apt_repository 'dotdeb-php55' do
       uri node['dotdeb']['uri']
       distribution "#{node['dotdeb']['distribution']}-php55"
