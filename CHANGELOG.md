@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dotdeb.
 
+## 1.0.1
+
+* added setting for php56 (wheezy)
+
 ## 0.0.9
 
 * add node.default['dotdeb']['gpg-key'] to circumvent downtime of website
