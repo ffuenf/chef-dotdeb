@@ -21,18 +21,19 @@
 if node['platform'] == 'debian'
   include_recipe 'apt'
   # switch php versions
-  if node['dotdeb']['php55']
-    apt_repository 'dotdeb-php55' do
+  if node['dotdeb']['php56']
+    apt_repository 'dotdeb-php56' do
       uri node['dotdeb']['uri']
-      distribution "#{node['dotdeb']['distribution']}-php55"
+      distribution "#{node['dotdeb']['distribution']}-php56"
       components ['all']
       key node['dotdeb']['gpg-key']
       cookbook 'dotdeb'
       action :add
     end
-    apt_repository 'dotdeb' do
+  elsif node['dotdeb']['php55']
+    apt_repository 'dotdeb-php55' do
       uri node['dotdeb']['uri']
-      distribution node['dotdeb']['distribution']
+      distribution "#{node['dotdeb']['distribution']}-php55"
       components ['all']
       key node['dotdeb']['gpg-key']
       cookbook 'dotdeb'
@@ -47,23 +48,15 @@ if node['platform'] == 'debian'
       cookbook 'dotdeb'
       action :add
     end
-    apt_repository 'dotdeb' do
-      uri node['dotdeb']['uri']
-      distribution node['dotdeb']['distribution']
-      components ['all']
-      key node['dotdeb']['gpg-key']
-      cookbook 'dotdeb'
-      action :add
-    end
-  else
-    apt_repository 'dotdeb' do
-      uri node['dotdeb']['uri']
-      distribution node['dotdeb']['distribution']
-      components ['all']
-      key node['dotdeb']['gpg-key']
-      cookbook 'dotdeb'
-      action :add
-    end
+  end
+
+  apt_repository 'dotdeb' do
+    uri node['dotdeb']['uri']
+    distribution node['dotdeb']['distribution']
+    components ['all']
+    key node['dotdeb']['gpg-key']
+    cookbook 'dotdeb'
+    action :add
   end
   resources(execute: 'apt-get-update').run_action(:run)
 end
