@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of dotdeb.
 
+## 1.1.0
+
+* update/integrate testsuites: test-kitchen, foodcritic, rubocop, travis-ci
+* prepare for release on supermarket.chef.io
+
 ## 1.0.1
 
 * added setting for php56 (wheezy)
