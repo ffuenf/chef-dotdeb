@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of dotdeb.
 
+## 1.1.1
+
+* added all different setting for php
+* refactore php_version logic
+* update/integrate testsuites: test-kitchen, foodcritic, rubocop, travis-ci
+
 ## 1.1.0
 
 * update/integrate testsuites: test-kitchen, foodcritic, rubocop, travis-ci

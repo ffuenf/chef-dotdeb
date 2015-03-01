@@ -14,10 +14,14 @@ platforms:
 - name: debian-7.8.0-amd64
   driver_config:
     box: debian-7.8.0-amd64
-    box_url: https://atlas.hashicorp.com/ffuenf/boxes/debian-7.8.0-amd64/versions/1.0.3/providers/virtualbox.box
+    box_url: https://atlas.hashicorp.com/ffuenf/boxes/debian-7.8.0-amd64/versions/1.0.4/providers/virtualbox.box
 
 suites:
 - name: default
   run_list:
     - recipe[dotdeb::default]
-  attributes: {}
+  attributes: {
+    "dotdeb": {
+      "php_version": "5.5"
+    }
+  }

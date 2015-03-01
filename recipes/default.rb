@@ -3,7 +3,7 @@
 # Cookbook Name:: dotdeb
 # Recipe:: default
 #
-# Copyright 2014, Achim Rosenhagen
+# Copyright 2015, Achim Rosenhagen
 #
 # Licensed under the Apache License, Version 2.0 (the 'License');
 # you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@
 if node['platform'] == 'debian'
   include_recipe 'apt'
   # switch php versions
-  if node['dotdeb']['php56']
+  if node['dotdeb']['php_version'] == '5.6'
     apt_repository 'dotdeb-php56' do
       uri node['dotdeb']['uri']
       distribution "#{node['dotdeb']['distribution']}-php56"
@@ -30,7 +30,16 @@ if node['platform'] == 'debian'
       cookbook 'dotdeb'
       action :add
     end
-  elsif node['dotdeb']['php55']
+  elsif node['dotdeb']['php_version'] == '5.6-zts'
+    apt_repository 'dotdeb-php56-zts' do
+      uri node['dotdeb']['uri']
+      distribution "#{node['dotdeb']['distribution']}-php56-zts"
+      components ['all']
+      key node['dotdeb']['gpg-key']
+      cookbook 'dotdeb'
+      action :add
+    end
+  elsif node['dotdeb']['php_version'] == '5.5'
     apt_repository 'dotdeb-php55' do
       uri node['dotdeb']['uri']
       distribution "#{node['dotdeb']['distribution']}-php55"
@@ -39,7 +48,7 @@ if node['platform'] == 'debian'
       cookbook 'dotdeb'
       action :add
     end
-  elsif node['dotdeb']['php54']
+  elsif node['dotdeb']['php_version'] == '5.4'
     apt_repository 'dotdeb-php54' do
       uri node['dotdeb']['uri']
       distribution "#{node['dotdeb']['distribution']}-php54"

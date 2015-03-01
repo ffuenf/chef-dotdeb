@@ -12,8 +12,6 @@ end
 
 group :kitchen_common do
   gem 'chef'
-  gem 'knife-solo'
-  gem 'knife-solo_data_bag'
   gem 'test-kitchen'
   gem 'serverspec', '~> 2.0'
 end

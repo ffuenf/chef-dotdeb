@@ -4,7 +4,7 @@ license 'Apache 2.0'
 description 'installs/configures dotdeb apt repositories'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 name 'dotdeb'
-version '1.1.0'
+version '1.1.1'
 
 %w(debian).each do |os|
   supports os
