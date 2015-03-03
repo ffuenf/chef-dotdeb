@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of dotdeb.
 
+## 1.1.2
+
+* add Yevhen Viktorov (<yev@bdhr.co>) as contributor
+* release on supermarket.chef.io
+
 ## 1.1.1
 
 * added all different setting for php

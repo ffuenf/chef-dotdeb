@@ -1,9 +1,8 @@
 #
 # Author::  Achim Rosenhagen (<a.rosenhagen@ffuenf.de>)
+# Author::  Yevhen Viktorov (<yev@bdhr.co>)
 # Cookbook Name:: dotdeb
 # Recipe:: default
-#
-# Copyright 2015, Achim Rosenhagen
 #
 # Licensed under the Apache License, Version 2.0 (the 'License');
 # you may not use this file except in compliance with the License.

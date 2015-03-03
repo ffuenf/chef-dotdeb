@@ -58,12 +58,11 @@ The following Rake tasks are provided for automated testing of the cookbook:
   [Serverspec])
 * `rake test` - Run all tests
 
-License and Author
-------------------
+License and Authors
+-------------------
 
 - Author:: Achim Rosenhagen (<a.rosenhagen@ffuenf.de>)
-
-- Copyright:: 2015, ffuenf
+- Author:: Yevhen Viktorov (<yev@bdhr.co>)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
