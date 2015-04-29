@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dotdeb.
 
+## 1.1.3
+
+* adjust/exclude php-repositories for Debian 8.0 Jessie
+
 ## 1.1.2
 
 * add Yevhen Viktorov (<yev@bdhr.co>) as contributor
