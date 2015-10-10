@@ -26,6 +26,9 @@ The following platforms are supported and tested:
 
 * Debian 6.x
 * Debian 7.x
+* Debian 8.x
+* Ubuntu 14.04.x
+* Ubuntu 15.04.x
 
 Development
 -----------

@@ -11,10 +11,40 @@ provisioner:
     ssl_verify_mode: verify_peer
 
 platforms:
-- name: debian-7.8.0-amd64
+- name: debian-6.0.10-amd64
+  driver_plugin: vagrant
   driver_config:
-    box: debian-7.8.0-amd64
-    box_url: https://atlas.hashicorp.com/ffuenf/boxes/debian-7.8.0-amd64/versions/1.0.4/providers/virtualbox.box
+    box: ffuenf/debian-6.0.10-amd64
+    box_url: https://atlas.hashicorp.com/ffuenf/debian-6.0.10-amd64
+    box_check_update: true
+
+- name: debian-7.9.0-amd64
+  driver_plugin: vagrant
+  driver_config:
+    box: ffuenf/debian-7.9.0-amd64
+    box_url: https://atlas.hashicorp.com/ffuenf/debian-7.9.0-amd64
+    box_check_update: true
+
+- name: debian-8.2.0-amd64
+  driver_plugin: vagrant
+  driver_config:
+    box: ffuenf/debian-8.2.0-amd64
+    box_url: https://atlas.hashicorp.com/ffuenf/debian-8.2.0-amd64
+    box_check_update: true
+
+- name: ubuntu-14.04.3-server-amd64
+  driver_plugin: vagrant
+  driver_config:
+    box: ffuenf/ubuntu-14.04.3-server-amd64
+    box_url: https://atlas.hashicorp.com/ffuenf/ubuntu-14.04.3-server-amd64
+    box_check_update: true
+
+- name: ubuntu-15.04-server-amd64
+  driver_plugin: vagrant
+  driver_config:
+    box: ffuenf/ubuntu-15.04-server-amd64
+    box_url: https://atlas.hashicorp.com/ffuenf/ubuntu-15.04-server-amd64
+    box_check_update: true
 
 suites:
 - name: default
@@ -22,6 +52,6 @@ suites:
     - recipe[dotdeb::default]
   attributes: {
     "dotdeb": {
-      "php_version": "5.5"
+      "php_version": "5.6"
     }
   }

@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of dotdeb.
 
+## 1.1.4
+
+* housekeeping: update versions for test-kitchen
+* compatibility to apt community cookbook
+
 ## 1.1.3
 
 * adjust/exclude php-repositories for Debian 8.0 Jessie

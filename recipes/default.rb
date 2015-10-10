@@ -68,5 +68,4 @@ if node['platform'] == 'debian'
     cookbook 'dotdeb'
     action :add
   end
-  resources(execute: 'apt-get-update').run_action(:run)
 end

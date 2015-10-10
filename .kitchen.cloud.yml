@@ -24,6 +24,6 @@ suites:
     - recipe[dotdeb::default]
   attributes: {
     "dotdeb": {
-      "php_version": "5.5"
+      "php_version": "5.6"
     }
   }
